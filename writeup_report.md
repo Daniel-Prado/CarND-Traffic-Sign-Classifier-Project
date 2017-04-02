@@ -39,7 +39,7 @@ The goals / steps of this project are the following:
 
 You're reading it! and here is a link to my [project code](https://github.com/Daniel-Prado/CarND-Traffic-Sign-Classifier-Project/blob/master/Traffic_Sign_Classifier.ipynb)
 
-Here you can also check the code output of the python notebook, as an HTML file. [project code](https://github.com/Daniel-Prado/CarND-Traffic-Sign-Classifier-Project/blob/master/report.html)
+Here you can also check the code output of the python notebook, as an HTML file. [code output](https://github.com/Daniel-Prado/CarND-Traffic-Sign-Classifier-Project/blob/master/report.html)
 
 ### Data Set Summary & Exploration
 
