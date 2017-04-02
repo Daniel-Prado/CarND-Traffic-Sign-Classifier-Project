@@ -28,11 +28,11 @@ The goals / steps of this project are the following:
 [image6]: ./examples/image6.png "normalization example"
 [image7]: ./examples/image7.png "softmax probabilities"
 [image8]: ./examples/image8.png "Layer 1 output feature maps"
-[imageSignal1]: ./new_images/image_class04.jpg "Roundabout mandatory"
-[imageSignal2]: ./new_images/image_class18.jpg "Children crossing"
-[imageSignal3]: ./new_images/image_class28.jpg "Ahead only"
-[imageSignal4]: ./new_images/image_class35.jpg "General caution"
-[imageSignal5]: ./new_images/image_class40.jpg "Speed limit (70km/h)"
+[imageSignal1]: ./new_images/image_class40.jpg "Roundabout mandatory"
+[imageSignal2]: ./new_images/image_class28.jpg "Children crossing"
+[imageSignal3]: ./new_images/image_class35.jpg "Ahead only"
+[imageSignal4]: ./new_images/image_class18.jpg "General caution"
+[imageSignal5]: ./new_images/image_class04.jpg "Speed limit (70km/h)"
 
 ## Rubric Points
 ### Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/481/view) individually and describe how I addressed each point in my implementation.  
@@ -228,15 +228,15 @@ Anyway, the validation accuracy is excellent (98.1%) and the test accuracy does 
 I have obtained these images myself from Google StreetView in cities such as Mannheim and Cologne in Germany... Actually any Western European country would have server, as these signals are 
 Here are five German traffic signs that I found on the web:
 
-![alt text][imageSignal5]
-
-![alt text][imageSignal4]
-
-![alt text][imageSignal3]
+![alt text][imageSignal1]
 
 ![alt text][imageSignal2]
 
-![alt text][imageSignal1]
+![alt text][imageSignal3]
+
+![alt text][imageSignal3]
+
+![alt text][imageSignal5]
 
 The first image would probably be the least difficult to classify because it is centered, with a simple background, well illuminated and with all its features clearly shown.
 The second image is also clearly identifiable for persons, however it is off-centered, and it has a strong background pattern of lines that could interfere with the signal line features.
