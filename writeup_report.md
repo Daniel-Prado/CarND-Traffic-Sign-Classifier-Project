@@ -228,8 +228,15 @@ Anyway, the validation accuracy is excellent (98.1%) and the test accuracy does 
 I have obtained these images myself from Google StreetView in cities such as Mannheim and Cologne in Germany... Actually any Western European country would have server, as these signals are 
 Here are five German traffic signs that I found on the web:
 
-![alt text][imageSignal1] ![alt text][imageSignal2] ![alt text][imageSignal3] 
-![alt text][imageSignal4] ![alt text][imageSignal5]
+![alt text][imageSignal1]
+
+![alt text][imageSignal2]
+
+![alt text][imageSignal3]
+
+![alt text][imageSignal4]
+
+![alt text][imageSignal5]
 
 The first image would probably be the least difficult to classify because it is centered, with a simple background, well illuminated and with all its features clearly shown.
 The second image is also clearly identifiable for persons, however it is off-centered, and it has a strong background pattern of lines that could interfere with the signal line features.
