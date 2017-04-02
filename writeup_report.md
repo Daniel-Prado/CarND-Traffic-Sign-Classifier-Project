@@ -20,14 +20,19 @@ The goals / steps of this project are the following:
 
 [//]: # (Image References)
 
-[image1]: ./examples/visualization.jpg "Visualization"
-[image2]: ./examples/grayscale.jpg "Grayscaling"
-[image3]: ./examples/random_noise.jpg "Random Noise"
-[image4]: ./examples/placeholder.png "Traffic Sign 1"
-[image5]: ./examples/placeholder.png "Traffic Sign 2"
-[image6]: ./examples/placeholder.png "Traffic Sign 3"
-[image7]: ./examples/placeholder.png "Traffic Sign 4"
-[image8]: ./examples/placeholder.png "Traffic Sign 5"
+[image1]: ./examples/Image1.png "first image per class"
+[image2]: ./examples/Image2.png "first 50 images per random class"
+[image3]: ./examples/Image3.png "class histograms of training, validation and test sets"
+[image4]: ./examples/Image4.png "class histogram of training, after augmentation"
+[image5]: ./examples/image5.png "augmentation example"
+[image6]: ./examples/image6.png "normalization example"
+[image7]: ./examples/image7.png "softmax probabilities"
+[image8]: ./examples/image8.png "Layer 1 output feature maps"
+[imageSignal1]: ./examples/image_class04.jpg "Roundabout mandatory"
+[imageSignal2]: ./examples/image_class18.jpg "Children crossing"
+[imageSignal3]: ./examples/image_class28.jpg "Ahead only"
+[imageSignal4]: ./examples/image_class35.jpg "General caution"
+[imageSignal5]: ./examples/image_class40.jpg "Speed limit (70km/h)"
 
 ## Rubric Points
 ### Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/481/view) individually and describe how I addressed each point in my implementation.  
@@ -64,25 +69,41 @@ The number of classes is 43
 The code for this step is contained in the code cells of Section 1 of the IPython notebook.
 I have done the following exercises:
 * Show the 1st sample found in the Training set for each class.
-* Show the 1st 50 samples in the Training Set of a randomly choosen class.
-* Show the histogram distribution per classes of the Training set, Validation set and Test set.
-* Discuss the comparison of the Training vs. Validation histograms and some remarks about the given valid.p set.
 
 ![alt text][image1]
+
+* Show the 1st 50 samples in the Training Set of a randomly choosen class.
+
+![alt text][image2]
+
+* Show the histogram distribution per classes of the Training set, Validation set and Test set.
+
+![alt text][image3]
+
+* Discuss the comparison of the Training vs. Validation histograms and some remarks about the given valid.p set.
+
+
 
 ### Design and Test a Model Architecture
 
 ##### 1. Describe how, and identify where in your code, you preprocessed the image data. What tecniques were chosen and why did you choose these techniques? Consider including images showing the output of each preprocessing technique. Pre-processing refers to techniques such as converting to grayscale, normalization, etc.
 
-The code for this step is contained in the fourth code cell of the IPython notebook.
+Note: Before applying normalization to the training set, I applied data augmentation, explained later in this report.
 
-As a first step, I decided to convert the images to grayscale because ...
+**DATA NORMALIZATION**
+I have experimented several methods for data normalization, but finally I have chosen the following steps:
+1) Convert all the images from RGB to YUV colorspace (Finally, I have used only the Y luminance component - grayscale)
+2) Apply the CV2.equalizeHist function to equalize the histogram of every image.
+3) Normalize the image by substracting the Mean of each image, and dividing by the Standard Deviation of each image.
 
-Here is an example of a traffic sign image before and after grayscaling.
+The 3rd step guarantees that every resulting image has a standar deviation of 1.0 and a Mean of 0.0... However this does not guarantee that a given pixel of the image is constrained within given margins (unlike for example, substracting 128 and dividing by 255)...  Even like that, I have observed empirically that this approach produces better validation results.
 
-![alt text][image2]
+Note that all the steps described are applied to all the training, validation and test sets.
 
-As a last step, I normalized the image data because ...
+As an example, here is a sample of a pre-processed and normalized image:
+
+![alt text][image6]
+
 
 ##### 2. Describe how, and identify where in your code, you set up training, validation and testing data. How much data was in each set? Explain what techniques were used to split the data into these sets. (OPTIONAL: As described in the "Stand Out Suggestions" part of the rubric, if you generated additional data for training, describe why you decided to generate additional data, how you generated the data, identify where in your code, and provide example images of the additional data)
 
@@ -100,26 +121,14 @@ Note that data augmentation applies only to the training set.
 See my code for data augmentation in the cell code under section "Data Augmentation"
 The resulting new histogram of the training set is shown below:
 
-![alt text][image3]
+![alt text][image4]
+
 Also, a sample of how the augmentation works for a given image, the following exercise is shown:
 
-![alt text][image4]
+![alt text][image5]
 
 My final training set had 57028 number of images. My validation set and test set had 4410 and 12630 number of images.
 
-**DATA NORMALIZATION**
-I have experimented several methods for data normalization, but finally I have chosen the following steps:
-1) Convert all the images from RGB to YUV colorspace (Finally, I have used only the Y luminance component - grayscale)
-2) Apply the CV2.equalizeHist function to equalize the histogram of every image.
-3) Normalize the image by substracting the Mean of each image, and dividing by the Standard Deviation of each image.
-
-The 3rd step guarantees that every resulting image has a standar deviation of 1.0 and a Mean of 0.0... However this does not guarantee that a given pixel of the image is constrained within given margins (unlike for example, substracting 128 and dividing by 255)...  Even like that, I have observed empirically that this approach produces better validation results.
-
-Note that all the steps described are applied to all the training, validation and test sets.
-
-As an example, here is a sample of a normalized image:
-
-![alt text][image4]
 
 #### 3. Describe, and identify where in your code, what your final model architecture looks like including model type, layers, layer sizes, connectivity, etc.) Consider including a diagram and/or table describing the final model.
 
@@ -177,30 +186,38 @@ My final model results were:
 
 If an iterative approach was chosen:
 * What was the first architecture that was tried and why was it chosen?
+
 As explained before, my model is based on the LeNet-5 shown in the class lab, with some enhancements.
 
 * What were some problems with the initial architecture?
+
 The initial architecture seemed to lack enough complexity to analyze the features of all the traffic signs classes, hence showing Underfitting. This could be normal as the LeNet-5 was designed to classify digits (10 classes) instead of 43 classes.
 
 * How was the architecture adjusted and why was it adjusted? Typical adjustments could include choosing a different model architecture, adding or taking away layers (pooling, dropout, convolution, etc), using an activation function or changing the activation function. One common justification for adjusting an architecture would be due to over fitting or under fitting. A high accuracy on the training set but low accuracy on the validation set indicates over fitting; a low accuracy on both sets indicates under fitting.
+
 Adding more features to the first convolutional layers was the key step to make the model more complex to adapt to the traffic signals complexity.
 Adding the Dropout layers clearly improved the accuracy, by making the model more "sure" of the predictions.
 
 * Which parameters were tuned? How were they adjusted and why?
+
 Already explained above. 
 
 * What are some of the important design choices and why were they chosen? For example, why might a convolution layer work well with this problem? How might a dropout layer help with creating a successful model?
+
 Already explained above.
 
 If a well known architecture was chosen:
 * What architecture was chosen?
+
 LeNet-5 
 
 * Why did you believe it would be relevant to the traffic sign application?
+
 Well, in the class it was shown that LeNet could achieve a good performance right away, so with some enhancements I was sure I could achieve an excellent accuracy.
 Of course there are more sofisticated and state-of-the-art architectures out there that I would love to try, but I wanted to focus to understand how a basic "classic" convnet architectute works first.
 
 * How does the final model's accuracy on the training, validation and test set provide evidence that the model is working well?
+
 The training accuracy reaches almost 100%, which maybe could show a bit of overfitting.
 Anyway, the validation accuracy is excellent (98.1%) and the test accuracy does not drop too much (95.5%). I think those are good results.
 
@@ -211,8 +228,8 @@ Anyway, the validation accuracy is excellent (98.1%) and the test accuracy does 
 I have obtained these images myself from Google StreetView in cities such as Mannheim and Cologne in Germany... Actually any Western European country would have server, as these signals are 
 Here are five German traffic signs that I found on the web:
 
-![alt text][image4] ![alt text][image5] ![alt text][image6] 
-![alt text][image7] ![alt text][image8]
+![alt text][imageSignal1] ![alt text][imageSignal2] ![alt text][imageSignal3] 
+![alt text][imageSignal4] ![alt text][imageSignal5]
 
 The first image would probably be the least difficult to classify because it is centered, with a simple background, well illuminated and with all its features clearly shown.
 The second image is also clearly identifiable for persons, however it is off-centered, and it has a strong background pattern of lines that could interfere with the signal line features.
@@ -245,6 +262,8 @@ In the notebook screenshot below we can observe the softmax probabilities repres
 For the first 4 images we see that the classifier is absolutely confident in the predictions with a 100% probability.
 Only for the 5th image, we see that the classifier is very uncertain. Only giving a 50% probability to the most likely prediction of 20km/h speed limit. whilst the correct answer is assigned only about an 8%.
 
+![alt text][image7]
+
 #### 4. Visualize the Neural Network's State with Test Images
 In this optional section I have managed to represent visually the feature maps of the 1st convolutional layers when the model receives the input of the 5 test images used in the previous sections.
 It is very interesting how the first CONV layer output extracts the feature maps of the 5 test signals. And more interestingly even for me, is how each feature number across the 5 test signals seems to focus in some specific common feature. For example Feature 0 seems to focus on "left borders" while Feature 8 seems to focus on "top-right" borders.
@@ -252,7 +271,7 @@ This also demonstrates that the MyLeNet network learned to detect useful traffic
 
 The maps areshown in the following figure:
 
-![alt text][image99]
+![alt text][image8]
 
 
 
