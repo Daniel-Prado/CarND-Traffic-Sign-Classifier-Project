@@ -28,11 +28,11 @@ The goals / steps of this project are the following:
 [image6]: ./examples/image6.png "normalization example"
 [image7]: ./examples/image7.png "softmax probabilities"
 [image8]: ./examples/image8.png "Layer 1 output feature maps"
-[imageSignal1]: ./examples/image_class04.jpg "Roundabout mandatory"
-[imageSignal2]: ./examples/image_class18.jpg "Children crossing"
-[imageSignal3]: ./examples/image_class28.jpg "Ahead only"
-[imageSignal4]: ./examples/image_class35.jpg "General caution"
-[imageSignal5]: ./examples/image_class40.jpg "Speed limit (70km/h)"
+[imageSignal1]: ./new_images/image_class04.jpg "Roundabout mandatory"
+[imageSignal2]: ./new_images/image_class18.jpg "Children crossing"
+[imageSignal3]: ./new_images/image_class28.jpg "Ahead only"
+[imageSignal4]: ./new_images/image_class35.jpg "General caution"
+[imageSignal5]: ./new_images/image_class40.jpg "Speed limit (70km/h)"
 
 ## Rubric Points
 ### Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/481/view) individually and describe how I addressed each point in my implementation.  
