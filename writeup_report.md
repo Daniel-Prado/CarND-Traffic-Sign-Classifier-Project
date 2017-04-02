@@ -20,10 +20,10 @@ The goals / steps of this project are the following:
 
 [//]: # (Image References)
 
-[image1]: ./examples/Image1.png "first image per class"
-[image2]: ./examples/Image2.png "first 50 images per random class"
-[image3]: ./examples/Image3.png "class histograms of training, validation and test sets"
-[image4]: ./examples/Image4.png "class histogram of training, after augmentation"
+[image1]: ./examples/image1.png "first image per class"
+[image2]: ./examples/image2.png "first 50 images per random class"
+[image3]: ./examples/image3.png "class histograms of training, validation and test sets"
+[image4]: ./examples/image4.png "class histogram of training, after augmentation"
 [image5]: ./examples/image5.png "augmentation example"
 [image6]: ./examples/image6.png "normalization example"
 [image7]: ./examples/image7.png "softmax probabilities"
