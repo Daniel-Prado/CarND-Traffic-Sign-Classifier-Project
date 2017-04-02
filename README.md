@@ -1,9 +1,17 @@
 ## Project: Build a Traffic Sign Recognition Program
 [![Udacity - Self-Driving Car NanoDegree](https://s3.amazonaws.com/udacity-sdc/github/shield-carnd.svg)](http://www.udacity.com/drive)
 
+#### Daniel Prado Rodriguez
+#### Feb'2017 Cohort
+
+See my final results (output of IPython notebook) in html format [here](https://github.com/Daniel-Prado/CarND-Traffic-Sign-Classifier-Project/blob/master/report.html).
+
+See my writeup report [here](https://github.com/Daniel-Prado/CarND-Traffic-Sign-Classifier-Project/blob/master/writeup_report.md)
+
 Overview
 ---
 In this project, you will use what you've learned about deep neural networks and convolutional neural networks to classify traffic signs. You will train and validate a model so it can classify traffic sign images using the [German Traffic Sign Dataset](http://benchmark.ini.rub.de/?section=gtsrb&subsection=dataset). After the model is trained, you will then try out your model on images of German traffic signs that you find on the web.
+The specific dataset used for this project can be downloaded [here](https://d17h27t6h515a5.cloudfront.net/topher/2017/February/5898cd6f_traffic-signs-data/traffic-signs-data.zip)
 
 We have included an Ipython notebook that contains further instructions 
 and starter code. Be sure to download the [Ipython notebook](https://github.com/udacity/CarND-Traffic-Sign-Classifier-Project/blob/master/Traffic_Sign_Classifier.ipynb). 
